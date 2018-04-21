@@ -16,14 +16,14 @@ namespace TitleCapitalizationTool
                 {
                     title = Console.ReadLine();
                     title = title.ToLower();
-                    String[] transitionalTitle = title.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    String[] transitionalTitle = title.Split(new Char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                     String[] wordsException = { "a", "an", "at", "and", "by", "but", "for", "in", "nor", "of", "on", "or", "out", "so", "to", "the", "up", "yet" };
                     for (UInt16 i = 0; i < transitionalTitle.Length; i++)
                     {
                         Char symbol = Char.ToUpper(transitionalTitle[i][0]);
                         transitionalTitle[i] = transitionalTitle[i].Remove(0, 1);
-                        transitionalTitle[i] = transitionalTitle[i].Insert(0, new string(symbol, 1));
+                        transitionalTitle[i] = transitionalTitle[i].Insert(0, new String(symbol, 1));
 
                         if (i != 0 && i != transitionalTitle.Length - 1)
                         {
