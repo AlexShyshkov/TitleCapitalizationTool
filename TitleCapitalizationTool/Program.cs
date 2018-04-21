@@ -60,7 +60,6 @@ namespace TitleCapitalizationTool
                     Console.ResetColor();
                     Console.Write("Capitalized title: ");
                     Console.ForegroundColor = ConsoleColor.Green;
-
                     Console.WriteLine(title);
                     Console.WriteLine();
                 }
