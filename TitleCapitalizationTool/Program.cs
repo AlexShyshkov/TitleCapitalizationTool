@@ -16,28 +16,28 @@ namespace TitleCapitalizationTool
                 {
                     title = Console.ReadLine();
                     title = title.ToLower();
-                    String[] title1 = title.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    String[] transitionalTitle = title.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                     String[] wordsException = { "a", "an", "at", "and", "by", "but", "for", "in", "nor", "of", "on", "or", "out", "so", "to", "the", "up", "yet" };
-                    for (UInt16 i = 0; i < title1.Length; i++)
+                    for (UInt16 i = 0; i < transitionalTitle.Length; i++)
                     {
-                        Char ch = Char.ToUpper(title1[i][0]);
-                        title1[i] = title1[i].Remove(0, 1);
-                        title1[i] = title1[i].Insert(0, new string(ch, 1));
+                        Char ch = Char.ToUpper(transitionalTitle[i][0]);
+                        transitionalTitle[i] = transitionalTitle[i].Remove(0, 1);
+                        transitionalTitle[i] = transitionalTitle[i].Insert(0, new string(ch, 1));
 
-                        if (i != 0 && i != title1.Length - 1)
+                        if (i != 0 && i != transitionalTitle.Length - 1)
                         {
                             for (UInt16 j = 0; j < wordsException.Length; j++)
                             {
-                                if (title1[i] == wordsException[j])
+                                if (transitionalTitle[i] == wordsException[j])
                                 {
-                                    title1[i] = title1[i].ToLower();
+                                    transitionalTitle[i] = transitionalTitle[i].ToLower();
                                     break;
                                 }
                             }
                         }
                     }
-                    title = String.Join(" ", title1);
+                    title = String.Join(" ", transitionalTitle);
 
                     for (UInt16 i = 1; i < title.Length; i++)
                     {
