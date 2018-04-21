@@ -18,7 +18,7 @@ namespace TitleCapitalizationTool
                     title = title.ToLower();
                     String[] title1 = title.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-                    String[] WordsException = { "a", "an", "at", "and", "by", "but", "for", "in", "nor", "of", "on", "or", "out", "so", "to", "the", "up", "yet" };
+                    String[] wordsException = { "a", "an", "at", "and", "by", "but", "for", "in", "nor", "of", "on", "or", "out", "so", "to", "the", "up", "yet" };
                     for (UInt16 i = 0; i < title1.Length; i++)
                     {
                         Char ch = Char.ToUpper(title1[i][0]);
@@ -27,9 +27,9 @@ namespace TitleCapitalizationTool
 
                         if (i != 0 && i != title1.Length - 1)
                         {
-                            for (UInt16 j = 0; j < WordsException.Length; j++)
+                            for (UInt16 j = 0; j < wordsException.Length; j++)
                             {
-                                if (title1[i] == WordsException[j])
+                                if (title1[i] == wordsException[j])
                                 {
                                     title1[i] = title1[i].ToLower();
                                     break;
