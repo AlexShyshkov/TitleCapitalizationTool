@@ -39,18 +39,22 @@ namespace TitleCapitalizationTool
                     }
                     title = String.Join(" ", transitionalTitle);
 
-                    for (UInt16 i = 1; i < title.Length; i++)
+                    Char[] signs = { ';', ':', ',', '.', '?', '!' };
+                    for (UInt16 j = 0; j < signs.Length; j++)
                     {
-                        if ((title[i] == ';' || title[i] == '.' || title[i] == ',' || title[i] == '!' || title[i] == '?' || title[i] == ':') && title[i - 1] == ' ')
+                        for (UInt16 i = 1; i < title.Length; i++)
                         {
-                            title = title.Remove(i - 1, 1);
+                            if ((title[i] == signs[j]) && title[i - 1] == ' ')
+                            {
+                                title = title.Remove(i - 1, 1);
+                            }
                         }
-                    }
-                    for (UInt16 i = 0; i < title.Length - 1; i++)
-                    {
-                        if ((title[i] == ';' || title[i] == '.' || title[i] == ',' || title[i] == '!' || title[i] == '?' || title[i] == ':') && title[i + 1] != ' ')
+                        for (UInt16 i = 0; i < title.Length - 1; i++)
                         {
-                            title = title.Insert(i + 1, " ");
+                            if ((title[i] == signs[j]) && title[i + 1] != ' ')
+                            {
+                                title = title.Insert(i + 1, " ");
+                            }
                         }
                     }
                     Console.ResetColor();
