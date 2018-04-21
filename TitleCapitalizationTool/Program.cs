@@ -66,7 +66,7 @@ namespace TitleCapitalizationTool
                 }
                 Console.ResetColor();
 
-            } while (true); //(Console.ReadKey().Key != ConsoleKey.Escape);
+            } while (true); 
         }
     }
 }
