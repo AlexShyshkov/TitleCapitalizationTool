@@ -69,7 +69,6 @@ namespace TitleCapitalizationTool
                 else
                 {
                     Console.Write("\r");
-                    //Console.SetCursorPosition(26, 0);
                 }
                 Console.ResetColor();
             } while (true); 
