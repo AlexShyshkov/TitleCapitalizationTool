@@ -11,7 +11,7 @@ namespace TitleCapitalizationTool
                 Console.Write("Enter title to capitalize: ");
                 Console.ForegroundColor = ConsoleColor.Red;
 
-                String title;
+                String title="";
                 ConsoleKeyInfo key = Console.ReadKey(true);
                                 
                 if (key.Key!=ConsoleKey.Enter)
@@ -65,6 +65,11 @@ namespace TitleCapitalizationTool
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(title);
                     Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write("\r");
+                    //Console.SetCursorPosition(26, 0);
                 }
                 Console.ResetColor();
             } while (true); 
