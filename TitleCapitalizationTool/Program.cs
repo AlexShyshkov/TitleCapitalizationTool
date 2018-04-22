@@ -10,11 +10,14 @@ namespace TitleCapitalizationTool
             {
                 Console.Write("Enter title to capitalize: ");
                 Console.ForegroundColor = ConsoleColor.Red;
-                String title;
 
-                if (Console.ReadKey(true).Key != ConsoleKey.Enter)
+                String title;
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                                
+                if (key.Key!=ConsoleKey.Enter)
                 {
-                    title = Console.ReadLine();
+                    Console.Write(key.KeyChar);
+                    title = key.KeyChar + Console.ReadLine();
                     title = title.ToLower();
                     String[] transitionalTitle = title.Split(new Char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
