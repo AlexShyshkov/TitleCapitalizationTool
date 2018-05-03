@@ -38,11 +38,6 @@ namespace TitleCapitalizationTool
                                     transitionalTitle[i] = transitionalTitle[i].ToLower();
                                     break;
                                 }
-                                else
-                                {
-                                    wordsException[j] = wordsException[j].ToLower();
-                                    
-                                }
                             }
                         }
                     }
