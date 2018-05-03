@@ -21,7 +21,7 @@ namespace TitleCapitalizationTool
                     title = title.ToLower();
                     String[] transitionalTitle = title.Split(new Char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-                    String[] wordsException = { "a", "an", "and", "at", "but", "by", "for", "in", "nor", "of", "on", "or", "out", "so", "the", "to", "up", "yet" };
+                    String[] wordsException = { "A", "An", "And", "At", "But", "By", "For", "In", "Nor", "Not", "Of", "On", "Or", "Out", "So", "The", "To", "Up", "Yet"};
                     Char[] signs = { ';', ':', ',', '.', '?', '!' };
                     for (UInt16 i = 0; i < transitionalTitle.Length; i++)
                     {
@@ -37,6 +37,11 @@ namespace TitleCapitalizationTool
                                 {
                                     transitionalTitle[i] = transitionalTitle[i].ToLower();
                                     break;
+                                }
+                                else
+                                {
+                                    wordsException[j] = wordsException[j].ToLower();
+                                    
                                 }
                             }
                         }
