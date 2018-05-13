@@ -52,25 +52,23 @@ namespace TitleCapitalizationTool
                     title = title.ToLower();
                     String[] transitionalTitle = title.Split(new Char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-                    String[] wordsException = { "A", "An", "And", "At", "But", "By", "For", "In", "Nor", "Not", "Of", "On", "Or", "Out", "So", "The", "To", "Up", "Yet" };
-                    Char[] signs = { ';', ':', ',', '.', '?', '!', '-' };
                     for (UInt16 i = 0; i < transitionalTitle.Length; i++)
                     {
                         Char symbol = Char.ToUpper(transitionalTitle[i][0]);
                         transitionalTitle[i] = transitionalTitle[i].Remove(0, 1);
                         transitionalTitle[i] = transitionalTitle[i].Insert(0, new String(symbol, 1));
 
-                        if (i != 0 && i != transitionalTitle.Length - 1&&IsWordsException(transitionalTitle[i]))
+                        if (i != 0 && i != transitionalTitle.Length - 1 && IsWordsException(transitionalTitle[i]))
                         {
                             transitionalTitle[i] = transitionalTitle[i].ToLower();
                         }
                     }
 
-                    if(transitionalTitle.Length>1&&IsSigns(transitionalTitle[transitionalTitle.Length-1][0]))
+                    if(transitionalTitle.Length > 1 && IsSigns(transitionalTitle[transitionalTitle.Length-1][0]))
                     {
-                        Char symbol = Char.ToUpper(transitionalTitle[transitionalTitle.Length - 2][0]);
-                        transitionalTitle[transitionalTitle.Length - 2] = transitionalTitle[transitionalTitle.Length - 2].Remove(0, 1);
-                        transitionalTitle[transitionalTitle.Length - 2] = transitionalTitle[transitionalTitle.Length - 2].Insert(0, new string(symbol, 1));
+                        Char symbol = Char.ToUpper(transitionalTitle[transitionalTitle.Length - 1][0]);//2
+                        transitionalTitle[transitionalTitle.Length - 1] = transitionalTitle[transitionalTitle.Length - 1].Remove(0, 1);
+                        transitionalTitle[transitionalTitle.Length - 1] = transitionalTitle[transitionalTitle.Length - 1].Insert(0, new string(symbol, 1));
                     }
                     title = String.Join(" ", transitionalTitle);
                                        
