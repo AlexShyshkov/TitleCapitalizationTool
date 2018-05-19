@@ -50,6 +50,24 @@ namespace TitleCapitalizationTool
                     Console.Write(key.KeyChar);
                     title = key.KeyChar + Console.ReadLine();
                     title = title.ToLower();
+
+                    for (Int16 i = 0; i < title.Length; i++)
+                    {
+                        if (IsSigns(title[i]))
+                        {
+                            --i;
+                            const UInt16 ShiftIndexBeforeSign = (int)SymbolShiftPosition.ONE;
+                            const UInt16 ShiftIndexAfterSign = (int)SymbolShiftPosition.THREE;
+                            const Int16 ShiftIndexAfterSpacebar = (int)SymbolShiftPosition.FOUR;
+                            if (i >= -1)
+                            {
+                                title = title.Insert(i + ShiftIndexBeforeSign, " ");
+                            }
+                            title = title.Insert(i + ShiftIndexAfterSign, " ");
+                            i += ShiftIndexAfterSpacebar;
+                        }
+                    }
+
                     String[] transitionalTitle = title.Split(new Char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                     for (UInt16 i = 0; i < transitionalTitle.Length; i++)
@@ -66,11 +84,20 @@ namespace TitleCapitalizationTool
 
                     if(transitionalTitle.Length > 1 && IsSigns(transitionalTitle[transitionalTitle.Length-1][0]))
                     {
-                        Char symbol = Char.ToUpper(transitionalTitle[transitionalTitle.Length - 1][0]);//2
+                        Char symbol = Char.ToUpper(transitionalTitle[transitionalTitle.Length - 1][0]);
                         transitionalTitle[transitionalTitle.Length - 1] = transitionalTitle[transitionalTitle.Length - 1].Remove(0, 1);
                         transitionalTitle[transitionalTitle.Length - 1] = transitionalTitle[transitionalTitle.Length - 1].Insert(0, new string(symbol, 1));
                     }
+
                     title = String.Join(" ", transitionalTitle);
+
+                    for (UInt16 i=0;i<title.Length;i++)
+                    {
+                        if(IsSigns(title[i]) && title[i-1]==' ' && title[i]!='-')
+                        {
+                            title = title.Remove(i - 1, 1);
+                        }
+                    }
                                        
                     Console.ResetColor();
                     Console.Write("Capitalized title: ");
@@ -84,6 +111,14 @@ namespace TitleCapitalizationTool
                 }
                 Console.ResetColor();
             } while (true);
+        }
+
+        public enum SymbolShiftPosition
+        {
+            ONE=1,
+            TWO,
+            THREE,
+            FOUR
         }
     }
 }
