@@ -56,9 +56,9 @@ namespace TitleCapitalizationTool
                         if (IsSigns(title[i]))
                         {
                             --i;
-                            const UInt16 ShiftIndexBeforeSign = (int)SymbolShiftPosition.ONE;
-                            const UInt16 ShiftIndexAfterSign = (int)SymbolShiftPosition.THREE;
-                            const Int16 ShiftIndexAfterSpacebar = (int)SymbolShiftPosition.FOUR;
+                            const UInt16 ShiftIndexBeforeSign = (int)SymbolShiftPosition.One;
+                            const UInt16 ShiftIndexAfterSign = (int)SymbolShiftPosition.Three;
+                            const Int16 ShiftIndexAfterSpacebar = (int)SymbolShiftPosition.Four;
                             if (i >= -1)
                             {
                                 title = title.Insert(i + ShiftIndexBeforeSign, " ");
@@ -115,10 +115,10 @@ namespace TitleCapitalizationTool
 
         public enum SymbolShiftPosition
         {
-            ONE=1,
-            TWO,
-            THREE,
-            FOUR
+            One=1,
+            Two,
+            Three,
+            Four
         }
     }
 }
