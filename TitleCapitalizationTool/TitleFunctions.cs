@@ -10,9 +10,9 @@ namespace TitleCapitalizationTool
         private Boolean IsWordsException(String title)
         {
             Boolean IsWordsException = false;
-            for(UInt16 i = 0; i < wordsException.Length; i++)
+            for (UInt16 i = 0; i < wordsException.Length; i++)
             {
-                if(title == wordsException[i])
+                if (title == wordsException[i])
                 {
                     IsWordsException = true;
                     break;
@@ -24,9 +24,9 @@ namespace TitleCapitalizationTool
         private Boolean IsSigns(Char sign)
         {
             Boolean IsSigns = false;
-            for(UInt16 i = 0; i < signs.Length; i++)
+            for (UInt16 i = 0; i < signs.Length; i++)
             {
-                if(sign == signs[i])
+                if (sign == signs[i])
                 {
                     IsSigns = true;
                     break;
@@ -82,7 +82,7 @@ namespace TitleCapitalizationTool
                         }
                     }
 
-                    if(transitionalTitle.Length > 1 && IsSigns(transitionalTitle[transitionalTitle.Length - 1][0]))
+                    if (transitionalTitle.Length > 1 && IsSigns(transitionalTitle[transitionalTitle.Length - 1][0]))
                     {
                         Char symbol = Char.ToUpper(transitionalTitle[transitionalTitle.Length - 1][0]);
                         transitionalTitle[transitionalTitle.Length - 1] = transitionalTitle[transitionalTitle.Length - 1].Remove(0, 1);
@@ -93,7 +93,7 @@ namespace TitleCapitalizationTool
 
                     for (UInt16 i = 0; i < title.Length; i++)
                     {
-                        if(IsSigns(title[i]) && title[i - 1] == ' ' && title[i] != '-')
+                        if (IsSigns(title[i]) && title[i - 1] == ' ' && title[i] != '-')
                         {
                             title = title.Remove(i - 1, 1);
                         }
