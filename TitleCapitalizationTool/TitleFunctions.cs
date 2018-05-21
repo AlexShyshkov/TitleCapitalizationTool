@@ -7,34 +7,6 @@ namespace TitleCapitalizationTool
         private String[] wordsException = { "A", "An", "And", "At", "But", "By", "For", "In", "Nor", "Not", "Of", "On", "Or", "Out", "So", "The", "To", "Up", "Yet" };
         private Char[] signs = { ';', ':', ',', '.', '?', '!', '-' };
 
-        private Boolean IsWordsException(String title)
-        {
-            Boolean IsWordsException = false;
-            for (UInt16 i = 0; i < wordsException.Length; i++)
-            {
-                if (title == wordsException[i])
-                {
-                    IsWordsException = true;
-                    break;
-                }
-            }
-            return IsWordsException;
-        }
-
-        private Boolean IsSigns(Char sign)
-        {
-            Boolean IsSigns = false;
-            for (UInt16 i = 0; i < signs.Length; i++)
-            {
-                if (sign == signs[i])
-                {
-                    IsSigns = true;
-                    break;
-                }
-            }
-            return IsSigns;
-        }
-
         public void Capitalization()
         {
             do
@@ -111,6 +83,34 @@ namespace TitleCapitalizationTool
                 }
                 Console.ResetColor();
             } while (true);
+        }
+        
+        private Boolean IsSigns(Char sign)
+        {
+            Boolean IsSigns = false;
+            for (UInt16 i = 0; i < signs.Length; i++)
+            {
+                if (sign == signs[i])
+                {
+                    IsSigns = true;
+                    break;
+                }
+            }
+            return IsSigns;
+        }
+
+        private Boolean IsWordsException(String title)
+        {
+            Boolean IsWordsException = false;
+            for (UInt16 i = 0; i < wordsException.Length; i++)
+            {
+                if (title == wordsException[i])
+                {
+                    IsWordsException = true;
+                    break;
+                }
+            }
+            return IsWordsException;
         }
     }
 }
