@@ -28,9 +28,9 @@ namespace TitleCapitalizationTool
                         if (IsSigns(title[i]))
                         {
                             --i;
-                            const UInt16 ShiftIndexBeforeSign = (int)Enumeration.SymbolShiftPosition.One;
-                            const UInt16 ShiftIndexAfterSign = (int)Enumeration.SymbolShiftPosition.Three;
-                            const Int16 ShiftIndexAfterSpacebar = (int)Enumeration.SymbolShiftPosition.Four;
+                            const UInt16 ShiftIndexBeforeSign = (int)SymbolShiftPosition.One;
+                            const UInt16 ShiftIndexAfterSign = (int)SymbolShiftPosition.Three;
+                            const Int16 ShiftIndexAfterSpacebar = (int)SymbolShiftPosition.Four;
                             if (i >= -1)
                             {
                                 title = title.Insert(i + ShiftIndexBeforeSign, " ");
